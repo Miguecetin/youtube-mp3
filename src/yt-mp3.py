@@ -7,7 +7,7 @@ def download_audio(yt_url: str):
             'key' : 'FFmpegExtractAudio',
             'preferredcodec' : 'mp3',
             'preferredquality' : '192'
-        }]
+        }], 'outtmpl': 'songs/%(title)s' # Save directory and name format
     }
 
     with YoutubeDL(ydl_opts) as ydl:

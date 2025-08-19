@@ -10,5 +10,5 @@
 ### Extra information:
 
 - The mp3 file will be downloaded in the songs folder
-- The name of the file will be: "yt video name [youtube url]"
+- The name of the file will be: "yt video name.mp3"
 - Urls from playlists are supported
