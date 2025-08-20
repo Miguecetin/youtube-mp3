@@ -50,16 +50,15 @@ def get_multiple_songs() -> list[str]:
     :rtype: list[str]
     """
 
-    asking = True
     yt_links = []
     counter = 0
 
-    while asking:
+    while True:
         
         new_url = input("Entering multiple youtube urls. Enter \"exit\" to start downloading:\n")
         
         if new_url == "exit":
-            asking = False
+            break
             
         elif "https://www.youtube.com/watch?v=" not in new_url: # Case for invalid url
             print(f"\"{new_url}\" is not a valid youtube link. Please try again.")
