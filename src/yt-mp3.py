@@ -1,6 +1,12 @@
 from yt_dlp import YoutubeDL
 
 def download_audio(yt_url: str):
+    """ Downloads the desired youtuve url into the songs folder
+
+    :param yt_url: youtube url to the video to download
+    :type yt_url: str
+    """
+    
     ydl_opts = {
         'format' : 'bestaudio/best',
         'postprocessors' : [{
@@ -14,6 +20,14 @@ def download_audio(yt_url: str):
         ydl.download([yt_url])
 
 def deleted_playlist_url(yt_url: str) -> str:
+    """ Deletes the playlist termination from the url
+
+    :param yt_url: url of the youtube video
+    :type yt_url: str
+    :return: url without the playlist termination
+    :rtype: str
+    """
+    
     is_playlist = False
     playlist_str = ""
 
@@ -30,7 +44,12 @@ def deleted_playlist_url(yt_url: str) -> str:
 
     return yt_url
 
-def get_multiple_songs() -> list:
+def get_multiple_songs() -> list[str]:
+    """ Gets a list with all the urls that the user wants to download
+
+    :return: list with urls to download
+    :rtype: list[str]
+    """
 
     asking = True
     yt_links = []
@@ -41,10 +60,13 @@ def get_multiple_songs() -> list:
         
         if new_url == "exit":
             asking = False
+            
         elif "https://www.youtube.com/watch?v=" not in new_url:
             print(f"\"{new_url}\" is not a valid youtube link. Please try again.")
+            
         elif new_url in yt_links:
             print(f"\"{new_url}\" has already been entered. Please try again")
+            
         else:
             yt_links.append(new_url)
             counter = counter + 1
@@ -53,16 +75,19 @@ def get_multiple_songs() -> list:
     return yt_links
 
 def main():
+    
     yt_url = input("Enter the youtube url or \"m\" for multiple songs:\n")
     
     if yt_url == "m": # Case for multiple songs
         yt_links = get_multiple_songs()
         counter = 0
-        for link in yt_links:
+        
+        for link in yt_links: # Download each url in the list
             counter = counter + 1
             print(f"Downloading songs {counter}/{len(yt_links)}")
             download_audio(deleted_playlist_url(link))
-    else:
+            
+    else: # Case for a single song
         print("Chose to enter a single song")
         download_audio(deleted_playlist_url(yt_url))
     
