@@ -39,7 +39,6 @@ def deleted_playlist_url(yt_url: str) -> str:
             playlist_str = playlist_str + i
 
     if is_playlist:
-        print("Trimming playlist url termination")
         yt_url = yt_url.replace(playlist_str, "")
 
     return yt_url
@@ -56,19 +55,20 @@ def get_multiple_songs() -> list[str]:
     counter = 0
 
     while asking:
+        
         new_url = input("Entering multiple youtube urls. Enter \"exit\" to start downloading:\n")
         
         if new_url == "exit":
             asking = False
             
-        elif "https://www.youtube.com/watch?v=" not in new_url:
+        elif "https://www.youtube.com/watch?v=" not in new_url: # Case for invalid url
             print(f"\"{new_url}\" is not a valid youtube link. Please try again.")
             
-        elif new_url in yt_links:
+        elif deleted_playlist_url(new_url) in yt_links: # Case for repeated url            
             print(f"\"{new_url}\" has already been entered. Please try again")
             
-        else:
-            yt_links.append(new_url)
+        else: # Case for valid & new url
+            yt_links.append(deleted_playlist_url(new_url))
             counter = counter + 1
             print(f"Song {counter} added.")
 
