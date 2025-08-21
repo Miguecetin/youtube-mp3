@@ -3,8 +3,8 @@
 
 ### How to run:
 
-- Run yt-mp3.py located on the src folder
-- Input the url of the youtube video or "m" to input multiple urls
+- Download dependencies from requirements.txt
+- Run yt-mp3.py with Python 3.9+ located on the src folder
 
 ### Extra information:
 
