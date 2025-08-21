@@ -3,7 +3,7 @@
 
 ### How to run:
 
-- Download dependencies from requirements.txt
+- Download dependencies from [requirements.txt](requirements.txt)
 - Run yt-mp3.py with Python 3.9+ located on the src folder
 
 ### Extra information:
