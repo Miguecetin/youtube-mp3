@@ -1,7 +1,7 @@
 from yt_dlp import YoutubeDL
 
 def download_audio(yt_url: str):
-    """ Downloads the desired youtuve url into the songs folder
+    """ Downloads the desired youtube url into the songs folder
 
     :param yt_url: youtube url to the video to download
     :type yt_url: str
