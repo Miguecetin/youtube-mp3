@@ -3,7 +3,6 @@
 
 ### How to run:
 
-- Download yt_dlp with pip or alternatives
 - Run yt-mp3.py located on the src folder
 - Input the url of the youtube video or "m" to input multiple urls
 
